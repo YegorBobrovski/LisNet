@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme for API21 and higher -->
-    <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
+    <!-- Base application theme for pre-Lollipop compatibility -->
+    <style name="AppTheme" parent="Theme.AppCompat">
         <!--   app branding color for the app bar -->
-        <item name="android:colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/primary</item>
         <!--   darker variant for the status bar and contextual app bars -->
-        <item name="android:colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
         <!--   theme UI controls like checkboxes and text fields -->
-        <item name="android:colorAccent">@color/accent</item>
+        <item name="colorAccent">@color/accent</item>
     </style>
 </resources>
