@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">LisNet Receiver</string>
+    
+    <!-- button text -->
+    <string name="edit">Edit</string>
+    <string name="refresh">Refresh</string>
+    <string name="exit">Exit</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    
+    <!-- activity title -->
+    <string name="main_activity_title">Choose network</string>
+    
+    <!-- messages and text -->
+    <string name="alert_exit_confirm_message">App will be closed</string>
 </resources>
