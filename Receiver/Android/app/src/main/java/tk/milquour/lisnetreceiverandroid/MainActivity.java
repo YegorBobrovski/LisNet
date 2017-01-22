@@ -1,13 +1,18 @@
 package tk.milquour.lisnetreceiverandroid;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import tk.milquour.lisnetreceiverandroid.notifications.Alert;
+import tk.milquour.lisnetreceiverandroid.notifications.Soast;
 
+public class MainActivity extends AppCompatActivity {
+    private boolean backToExitPressedOnce = false;
+    private boolean appClosing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_exit:
-                Utils.confirmAppClosing(this);
+                Alert.confirmAppClosing(this);
                 break;
             default:
                 break;
@@ -48,10 +53,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        // the're any activities left in stack or it's double BACK pressing
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             super.onBackPressed();
-        } else {
-            Utils.confirmAppClosing(this);
+            return;
         }
+        if (backToExitPressedOnce) {
+            G.getInstance().close();
+            return;
+        }
+
+        this.backToExitPressedOnce = true;
+        Soast.INST.show(R.string.message_tap_back_again_to_exit);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (G.getInstance().isClosing()) return;
+                backToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 }

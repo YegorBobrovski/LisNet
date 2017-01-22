@@ -14,5 +14,7 @@
     <string name="main_activity_title">Choose network</string>
     
     <!-- messages and text -->
-    <string name="alert_exit_confirm_message">App will be closed</string>
+    <string name="alert_exit_confirm_message">Do you wish to exit?</string>
+    <string name="message_tap_back_again_to_exit">Press again to exit</string>
+    <string name="message_exiting">Exiting&#8230;</string>
 </resources>
